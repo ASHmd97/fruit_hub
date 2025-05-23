@@ -14,8 +14,10 @@ void main() async {
   runApp(
     EasyLocalization(
       supportedLocales: const [Locale('en'), Locale('ar')],
+      saveLocale: true,
+      startLocale: const Locale('ar'),
+      fallbackLocale: const Locale('en'),
       path: 'assets/translations',
-      fallbackLocale: Locale('en'),
       child: FruitHup(),
     ),
   );
