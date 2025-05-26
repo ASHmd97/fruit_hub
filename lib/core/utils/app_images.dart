@@ -14,6 +14,22 @@ class Assets {
   /// assets/images/fruit_hup_logo.svg
   static const String imagesFruitHupLogo = "assets/images/fruit_hup_logo.svg";
 
+  /// Assets for imagesOnBoardingBg1
+  /// assets/images/onBoarding_bg1.svg
+  static const String imagesOnBoardingBg1 = "assets/images/onBoarding_bg1.svg";
+
+  /// Assets for imagesOnBoardingBg2
+  /// assets/images/onBoarding_bg2.svg
+  static const String imagesOnBoardingBg2 = "assets/images/onBoarding_bg2.svg";
+
+  /// Assets for imagesOnBoardingFruitBasket
+  /// assets/images/onBoarding_fruit_basket.svg
+  static const String imagesOnBoardingFruitBasket = "assets/images/onBoarding_fruit_basket.svg";
+
+  /// Assets for imagesOnBoardingPineapple
+  /// assets/images/onBoarding_pineapple.svg
+  static const String imagesOnBoardingPineapple = "assets/images/onBoarding_pineapple.svg";
+
   /// Assets for imagesSplashCircles
   /// assets/images/splash_circles.svg
   static const String imagesSplashCircles = "assets/images/splash_circles.svg";

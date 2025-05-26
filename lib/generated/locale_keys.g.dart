@@ -19,9 +19,12 @@ abstract class  LocaleKeys {
   static const validation_phoneInvalid = 'validation.phoneInvalid';
   static const validation_pinCodeError = 'validation.pinCodeError';
   static const validation = 'validation';
-  static const applicationApproved_title = 'applicationApproved.title';
-  static const applicationApproved_description = 'applicationApproved.description';
-  static const applicationApproved_login = 'applicationApproved.login';
-  static const applicationApproved = 'applicationApproved';
+  static const onboarding_skip = 'onboarding.skip';
+  static const onboarding_btn = 'onboarding.btn';
+  static const onboarding_title1 = 'onboarding.title1';
+  static const onboarding_title2 = 'onboarding.title2';
+  static const onboarding_description1 = 'onboarding.description1';
+  static const onboarding_description2 = 'onboarding.description2';
+  static const onboarding = 'onboarding';
 
 }

@@ -32,10 +32,13 @@ class CodegenLoader extends AssetLoader{
     "phoneInvalid": "Please enter a valid phone number",
     "pinCodeError": "Invalid code"
   },
-  "applicationApproved": {
-    "title": "Your application has been \n submitted!",
-    "description": "Thank you for providing your application, we will review your application and will get back to you soon.",
-    "login": "Login"
+  "onboarding": {
+    "skip": "Skip",
+    "btn": "Get Started",
+    "title1": "Welcome to ",
+    "title2": "Explore and Shop",
+    "description1": "Discover a unique shopping experience with FruitHUB. Explore our wide range of premium fresh fruits and get the best deals and high quality.",
+    "description2": "We bring you the best carefully selected fruits. Check out details, images, and reviews to ensure you choose the perfect fruit."
   }
 };
 static const Map<String,dynamic> _ar = {
@@ -56,10 +59,13 @@ static const Map<String,dynamic> _ar = {
     "phoneInvalid": "يرجى إدخال رقم هاتف صحيح",
     "pinCodeError": "رمز غير صحيح"
   },
-  "applicationApproved": {
-    "title": "تم إرسال طلبك!",
-    "description": "شكرًا لتقديمك الطلب. سنقوم بمراجعة طلبك وسنعاود التواصل معك قريبًا.",
-    "login": "تسجيل الدخول"
+  "onboarding": {
+    "skip": "تخط",
+    "btn": "ابدأ الآن",
+    "title1": "مرحبا بك",
+    "title2": "ابحث وتسوق",
+    "description1": "اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.",
+    "description2": "نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": _en, "ar": _ar};

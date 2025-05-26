@@ -15,5 +15,13 @@
     "phoneEmpty": "Please enter the phone number",
     "phoneInvalid": "Please enter a valid phone number",
     "pinCodeError": "Invalid code"
+  },
+  "onboarding": {
+    "skip": "Skip",
+    "btn": "Get Started",
+    "title1": "Welcome to ",
+    "title2": "Explore and Shop",
+    "description1": "Discover a unique shopping experience with FruitHUB. Explore our wide range of premium fresh fruits and get the best deals and high quality.",
+    "description2": "We bring you the best carefully selected fruits. Check out details, images, and reviews to ensure you choose the perfect fruit."
   }
 }

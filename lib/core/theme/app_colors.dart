@@ -52,53 +52,8 @@ class AppColors {
   );
 
   // Green
-  static const green = MaterialColor(
-    0xff12704B, // 900
-    <int, Color>{
-      10: Color(0xff12704B), // 900
-      20: Color(0xff225610), // 800
-      30: Color(0xff43AC20), // 700
-      40: Color(0xff76F232), // 600
-      50: Color(0xff97E7E9), // 500
-      60: Color(0xffF0DF5A), // 400
-      70: Color(0xffDCFCE7), // 200
-      80: Color(0xff0B1504), // 100
-      90: Color(0xffEEFBEA), // 50
-      100: Color(0xff22C55E), // 0
-    },
-  );
+  static const green = Color(0xff1B5E37);
 
   // Orange
-  static const orange = MaterialColor(
-    0xff321002, // 900
-    <int, Color>{
-      10: Color(0xff321002), // 900
-      20: Color(0xff614105), // 800
-      30: Color(0xff921107), // 700
-      40: Color(0xffC26200), // 600
-      50: Color(0xffF583D0), // 500
-      60: Color(0xffF876D0), // 400
-      70: Color(0xffFADA0E), // 300
-      80: Color(0xffFEDECE), // 200
-      90: Color(0xffF81001), // 100
-      100: Color(0xffFEE6E7), // 50
-    },
-  );
-
-  // Green1
-  static const green1 = MaterialColor(
-    0xff082817, // 900
-    <int, Color>{
-      10: Color(0xff082817), // 900
-      20: Color(0xff174F2E), // 800
-      30: Color(0xff227745), // 700
-      40: Color(0xff2D9F50), // 600
-      50: Color(0xff8D0DAB), // 500
-      60: Color(0xff80ECE7), // 400
-      70: Color(0xffD7FAE3), // 300
-      80: Color(0xff0F7E43), // 200
-      90: Color(0xff06140C), // 100
-      100: Color(0xffEBF9F1), // 50
-    },
-  );
+  static const orange = Color(0xffF4A91F);
 }

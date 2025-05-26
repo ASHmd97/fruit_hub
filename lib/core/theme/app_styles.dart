@@ -63,6 +63,17 @@ TextStyle getExtraBoldStyle({
   fontWeight: FontWeight.w800,
   color: color,
 );
+
+TextStyle getSemiBoldStyle({
+  double? fontSize,
+  double? height,
+  required Color color,
+}) => _getTextStyle(
+  fontSize: fontSize ?? 13.sp,
+  fontWeight: FontWeight.w600,
+  color: color,
+);
+
 TextStyle getBlackStyle({
   double? fontSize,
   double? height,
