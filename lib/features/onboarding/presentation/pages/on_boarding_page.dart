@@ -1,5 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:fruit_hub/core/app_data/local_storage/local_constants.dart';
 import 'package:fruit_hub/core/app_data/local_storage/local_storage_client.dart';
 import 'package:fruit_hub/core/di/injectable.dart';
 import 'package:fruit_hub/core/routes/routes.dart';
@@ -27,7 +28,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   void initState() {
     super.initState();
     // Check if the user has already seen the onboarding
-    widget.localStorageClient.saveData('hasSeenOnboarding', 'true');
+    widget.localStorageClient.saveBool(LocalConstants.onBoardingKey, true);
   }
 
   @override

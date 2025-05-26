@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fruit_hub/core/app_data/local_storage/local_constants.dart';
 import 'package:fruit_hub/core/app_data/local_storage/local_storage_client.dart';
 import 'package:fruit_hub/core/di/injectable.dart';
 import 'package:fruit_hub/core/routes/routes.dart';
@@ -56,18 +57,21 @@ class _SplashPageState extends State<SplashPage> {
     );
   }
 
-  void executeNavigate() {
-    Future.delayed(const Duration(seconds: 3), () {
-      // Check if the user has seen the onboarding
-      bool hasSeenOnboarding =
-          widget.localStorageClient.getData('hasSeenOnboarding') == 'true';
+  void executeNavigate() async {
+    await Future.delayed(const Duration(seconds: 3));
+
+    try {
+      bool hasSeenOnboarding = widget.localStorageClient.getBool(
+        LocalConstants.onBoardingKey,
+      );
+
       if (hasSeenOnboarding) {
-        // Navigate to the login page
         Navigator.pushReplacementNamed(context, Routes.login);
       } else {
-        // Navigate to the onboarding page
         Navigator.pushReplacementNamed(context, Routes.onBoarding);
       }
-    });
+    } catch (e) {
+      Navigator.pushReplacementNamed(context, Routes.onBoarding);
+    }
   }
 }

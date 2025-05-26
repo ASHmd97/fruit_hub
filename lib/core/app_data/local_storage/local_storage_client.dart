@@ -10,10 +10,7 @@ class LocalStorageClient {
   SharedPreferences sharedPreferences;
   FlutterSecureStorage secureStorage;
 
-  LocalStorageClient(
-    this.sharedPreferences,
-    this.secureStorage,
-  );
+  LocalStorageClient(this.sharedPreferences, this.secureStorage);
 
   Future<bool>? saveData(String key, String value) async {
     try {
@@ -26,9 +23,24 @@ class LocalStorageClient {
   String? getData(String key) {
     try {
       Log.d('getting $key');
-      return sharedPreferences.getString(
-        key,
-      );
+      return sharedPreferences.getString(key);
+    } catch (e) {
+      throw LocalStorageException('Failed to get data: ${e.toString()}');
+    }
+  }
+
+  Future<bool>? saveBool(String key, bool value) async {
+    try {
+      return await sharedPreferences.setBool(key, value);
+    } catch (e) {
+      throw LocalStorageException('Failed to save data: ${e.toString()}');
+    }
+  }
+
+  bool getBool(String key) {
+    try {
+      Log.d('getting $key');
+      return sharedPreferences.getBool(key) ?? false;
     } catch (e) {
       throw LocalStorageException('Failed to get data: ${e.toString()}');
     }
