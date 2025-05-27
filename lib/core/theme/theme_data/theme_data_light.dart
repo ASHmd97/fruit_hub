@@ -18,8 +18,9 @@ ThemeData getLightTheme() => ThemeData(
     backgroundColor: AppColors.scaffoldBackground,
     foregroundColor: AppColors.black,
     titleTextStyle: getMediumStyle(color: AppColors.black, fontSize: 20.sp),
-    centerTitle: false,
+    centerTitle: true,
   ),
+
   elevatedButtonTheme: ElevatedButtonThemeData(
     style: ElevatedButton.styleFrom(
       backgroundColor: AppColors.primary,

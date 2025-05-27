@@ -6,6 +6,8 @@ class AppColors {
   static const scaffoldBackground = Color(0xffffffff);
 
   static const primary = Color(0xff1a5e37);
+  static const lightPrimary = Color(0xff2D9F5D);
+  // static const primaryDark = Color(0xff0B3A1F);
 
   static const black = MaterialColor(0xff0C1015, <int, Color>{
     10: Color(0xff0C1015),
