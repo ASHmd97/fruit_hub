@@ -10,9 +10,21 @@ class Assets {
   /// assets/images/app_icon_ios.png
   static const String imagesAppIconIos = "assets/images/app_icon_ios.png";
 
+  /// Assets for imagesAppleIcons
+  /// assets/images/apple_Icons.svg
+  static const String imagesAppleIcons = "assets/images/apple_Icons.svg";
+
+  /// Assets for imagesFacebookIcons
+  /// assets/images/facebook_Icons.svg
+  static const String imagesFacebookIcons = "assets/images/facebook_Icons.svg";
+
   /// Assets for imagesFruitHupLogo
   /// assets/images/fruit_hup_logo.svg
   static const String imagesFruitHupLogo = "assets/images/fruit_hup_logo.svg";
+
+  /// Assets for imagesGoogleIcons
+  /// assets/images/google_Icons.svg
+  static const String imagesGoogleIcons = "assets/images/google_Icons.svg";
 
   /// Assets for imagesOnBoardingBg1
   /// assets/images/onBoarding_bg1.svg

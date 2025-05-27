@@ -1,7 +1,7 @@
 // core/routes/routes.dart
 class Routes {
   static const String login = '/login';
-  static const String signup = '/signup';
+  static const String register = '/register';
   static const String onBoarding = '/on-boarding';
   static const String forgetPassword = '/forget-password';
   static const String pinCode = '/pin-code';

@@ -20,13 +20,14 @@ class DioApiClient implements ApiClient {
   final GlobalKey<NavigatorState> _appNavigator;
 
   DioApiClient(this.localStorage, this.errorHandler, this._appNavigator)
-      : _dio = Dio(BaseOptions(
+    : _dio = Dio(
+        BaseOptions(
           baseUrl: ApiConstants.baseUrl,
           connectTimeout: const Duration(seconds: 10),
           receiveTimeout: const Duration(seconds: 10),
           responseType: ResponseType.json,
-        ))
-          ..interceptors.add(PrettyDioLogger());
+        ),
+      )..interceptors.add(PrettyDioLogger());
 
   @override
   Future<dynamic> get(
@@ -36,10 +37,7 @@ class DioApiClient implements ApiClient {
   }) async {
     try {
       await checkToken(requiresToken);
-      final response = await _dio.get(
-        path,
-        queryParameters: queryParameters,
-      );
+      final response = await _dio.get(path, queryParameters: queryParameters);
       return response.data;
     } on DioException catch (e) {
       throw errorHandler.handle(e);
@@ -47,10 +45,12 @@ class DioApiClient implements ApiClient {
   }
 
   @override
-  Future<dynamic> post(String path,
-      {dynamic data,
-      Map<String, dynamic>? queryParameters,
-      bool requiresToken = true}) async {
+  Future<dynamic> post(
+    String path, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+    bool requiresToken = true,
+  }) async {
     try {
       await checkToken(requiresToken);
       final response = await _dio.post(
@@ -65,10 +65,12 @@ class DioApiClient implements ApiClient {
   }
 
   @override
-  Future<dynamic> put(String path,
-      {dynamic data,
-      Map<String, dynamic>? queryParameters,
-      bool requiresToken = true}) async {
+  Future<dynamic> put(
+    String path, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+    bool requiresToken = true,
+  }) async {
     try {
       await checkToken(requiresToken);
       final response = await _dio.put(
@@ -83,10 +85,12 @@ class DioApiClient implements ApiClient {
   }
 
   @override
-  Future<dynamic> patch(String path,
-      {dynamic data,
-      Map<String, dynamic>? queryParameters,
-      bool requiresToken = true}) async {
+  Future<dynamic> patch(
+    String path, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+    bool requiresToken = true,
+  }) async {
     try {
       await checkToken(requiresToken);
       final response = await _dio.patch(
@@ -101,9 +105,11 @@ class DioApiClient implements ApiClient {
   }
 
   @override
-  Future<dynamic> delete(String path,
-      {Map<String, dynamic>? queryParameters,
-      bool requiresToken = true}) async {
+  Future<dynamic> delete(
+    String path, {
+    Map<String, dynamic>? queryParameters,
+    bool requiresToken = true,
+  }) async {
     try {
       await checkToken(requiresToken);
       final response = await _dio.delete(
@@ -129,11 +135,15 @@ class DioApiClient implements ApiClient {
       }
     } catch (e) {
       Log.e(
-          'throwing ApiException(message: Failed to retrieve token: ${e.toString()}');
-      if (appCurrentRoute != Routes.login && appCurrentRoute != Routes.signup) {
+        'throwing ApiException(message: Failed to retrieve token: ${e.toString()}',
+      );
+      if (appCurrentRoute != Routes.login &&
+          appCurrentRoute != Routes.register) {
         await localStorage.saveRememberMe(false);
-        _appNavigator.currentState
-            ?.pushNamedAndRemoveUntil(Routes.login, (route) => false);
+        _appNavigator.currentState?.pushNamedAndRemoveUntil(
+          Routes.login,
+          (route) => false,
+        );
       }
       throw ApiException(message: 'Failed to retrieve token: ${e.toString()}');
     }

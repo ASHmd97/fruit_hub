@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class AppColors {
   AppColors._();
 
-  static const scaffoldBackground = Color(0xffF9F9F9);
+  static const scaffoldBackground = Color(0xffffffff);
 
-  static const primary = Color.fromARGB(255, 56, 25, 38);
+  static const primary = Color(0xff1a5e37);
 
   static const black = MaterialColor(0xff0C1015, <int, Color>{
     10: Color(0xff0C1015),
@@ -25,6 +25,11 @@ class AppColors {
   });
 
   static const grey = Color(0xff535353);
+  static const lightGreyText = Color(0xff949d9e);
+
+  static const light = Color(0xffF9FAFA);
+
+  static const lightGrey = Color(0xffe5e9ea);
 
   static const disableButton = Color(0xff878787);
 

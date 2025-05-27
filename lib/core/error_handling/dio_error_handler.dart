@@ -100,7 +100,7 @@ class DioErrorHandler {
 
   void _checkTokenValidity(data) {
     if (appCurrentRoute != Routes.login &&
-        appCurrentRoute != Routes.signup &&
+        appCurrentRoute != Routes.register &&
         data['code'] == 401 &&
         (data['message'].contains('invalid token') ||
             data['message'].contains('user not found'))) {
