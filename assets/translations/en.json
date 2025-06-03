@@ -1,5 +1,9 @@
 {
   "validation": {
+    "fullNameEmpty": "Please enter your full name",
+    "fullNameTooShort": "Full name is too short",
+    "fullNameTooLong": "Full name is too long",
+    "fullNameInvalid": "Please enter a valid full name",
     "firstNameEmpty": "Please enter the first name",
     "firstNameInvalid": "Please enter a valid first name",
     "lastNameEmpty": "Please enter the last name",
@@ -23,5 +27,13 @@
     "title2": "Explore and Shop",
     "description1": "Discover a unique shopping experience with FruitHUB. Explore our wide range of premium fresh fruits and get the best deals and high quality.",
     "description2": "We bring you the best carefully selected fruits. Check out details, images, and reviews to ensure you choose the perfect fruit."
+  },
+  "dialogs": {
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Information",
+    "ok": "OK",
+    "cancel": "Cancel"
   }
 }

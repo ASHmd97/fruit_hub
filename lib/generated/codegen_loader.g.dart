@@ -16,6 +16,10 @@ class CodegenLoader extends AssetLoader{
 
   static const Map<String,dynamic> _en = {
   "validation": {
+    "fullNameEmpty": "Please enter your full name",
+    "fullNameTooShort": "Full name is too short",
+    "fullNameTooLong": "Full name is too long",
+    "fullNameInvalid": "Please enter a valid full name",
     "firstNameEmpty": "Please enter the first name",
     "firstNameInvalid": "Please enter a valid first name",
     "lastNameEmpty": "Please enter the last name",
@@ -39,10 +43,22 @@ class CodegenLoader extends AssetLoader{
     "title2": "Explore and Shop",
     "description1": "Discover a unique shopping experience with FruitHUB. Explore our wide range of premium fresh fruits and get the best deals and high quality.",
     "description2": "We bring you the best carefully selected fruits. Check out details, images, and reviews to ensure you choose the perfect fruit."
+  },
+  "dialogs": {
+    "error": "Error",
+    "success": "Success",
+    "warning": "Warning",
+    "info": "Information",
+    "ok": "OK",
+    "cancel": "Cancel"
   }
 };
 static const Map<String,dynamic> _ar = {
   "validation": {
+    "fullNameEmpty": "يرجى إدخال الاسم الكامل",
+    "fullNameTooShort": "الاسم الكامل قصير جدًا",
+    "fullNameTooLong": "الاسم الكامل طويل جدًا",
+    "fullNameInvalid": "يرجى إدخال اسم كامل صحيح",
     "firstNameEmpty": "يرجى إدخال الاسم الأول",
     "firstNameInvalid": "الرجاء إدخال اسم أول صحيح",
     "lastNameEmpty": "يرجى إدخال اسم العائلة",
@@ -62,10 +78,18 @@ static const Map<String,dynamic> _ar = {
   "onboarding": {
     "skip": "تخط",
     "btn": "ابدأ الآن",
-    "title1": "مرحبا بك",
+    "title1": "مرحبا بك في ",
     "title2": "ابحث وتسوق",
     "description1": "اكتشف تجربة تسوق فريدة مع FruitHUB. استكشف مجموعتنا الواسعة من الفواكه الطازجة الممتازة واحصل على أفضل العروض والجودة العالية.",
     "description2": "نقدم لك أفضل الفواكه المختارة بعناية. اطلع على التفاصيل والصور والتقييمات لتتأكد من اختيار الفاكهة المثالية"
+  },
+  "dialogs": {
+    "error": "خطأ",
+    "success": "نجاح",
+    "warning": "تحذير",
+    "info": "معلومات",
+    "ok": "موافق",
+    "cancel": "إلغاء"
   }
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"en": _en, "ar": _ar};

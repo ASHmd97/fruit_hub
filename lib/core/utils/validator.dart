@@ -5,9 +5,7 @@ class Validator {
   Validator._();
 
   static String? phoneNumberValidation(String? number) {
-    final RegExp numberRegex = RegExp(
-      r'^(\+201|01|00201)[0-2,5]{1}[0-9]{8}$',
-    );
+    final RegExp numberRegex = RegExp(r'^(\+201|01|00201)[0-2,5]{1}[0-9]{8}$');
     if (number == null || number.trim().isEmpty || number == '+2') {
       return LocaleKeys.validation_phoneEmpty.tr();
     } else if (numberRegex.hasMatch(number) == false) {
@@ -30,10 +28,34 @@ class Validator {
     }
   }
 
-  static String? lastNameValidation(String? name) {
+  static String? fullNameValidation(String? name) {
     final RegExp nameRegex = RegExp(
-      r'^[a-zA-Z]{2,30}$',
+      r'^[a-zA-Z\u0600-\u06FF]{2,}( [a-zA-Z\u0600-\u06FF]{2,})*$',
     );
+    if (name == null || name.trim().isEmpty) {
+      return LocaleKeys.validation_fullNameEmpty.tr();
+    }
+
+    final trimmedName = name.trim();
+    final nameParts = trimmedName.split(RegExp(r'\s+'));
+
+    if (nameParts.length < 2) {
+      return LocaleKeys.validation_fullNameTooShort.tr();
+    }
+
+    if (nameParts.length > 4) {
+      return LocaleKeys.validation_fullNameTooLong.tr();
+    }
+
+    if (!nameRegex.hasMatch(trimmedName)) {
+      return LocaleKeys.validation_fullNameInvalid.tr();
+    }
+
+    return null;
+  }
+
+  static String? lastNameValidation(String? name) {
+    final RegExp nameRegex = RegExp(r'^[a-zA-Z]{2,30}$');
     if (name == null || name.trim().isEmpty) {
       return LocaleKeys.validation_lastNameEmpty.tr();
     } else if (nameRegex.hasMatch(name) == false) {
@@ -44,9 +66,7 @@ class Validator {
   }
 
   static String? firstNameValidation(String? name) {
-    final RegExp nameRegex = RegExp(
-      r'^[a-zA-Z]{2,30}$',
-    );
+    final RegExp nameRegex = RegExp(r'^[a-zA-Z]{2,30}$');
     if (name == null || name.trim().isEmpty) {
       return LocaleKeys.validation_firstNameEmpty.tr();
     } else if (nameRegex.hasMatch(name) == false) {
@@ -83,7 +103,9 @@ class Validator {
   }
 
   static String? confirmPasswordValidation(
-      String? confirmPassword, String? originalPassword) {
+    String? confirmPassword,
+    String? originalPassword,
+  ) {
     if (confirmPassword == null || confirmPassword.trim().isEmpty) {
       return LocaleKeys.validation_confirmPasswordEmpty.tr();
     }

@@ -1,11 +1,31 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruit_hub/core/widget/loading_indicator.dart';
+import 'package:fruit_hub/generated/locale_keys.g.dart';
 import 'package:injectable/injectable.dart';
 
 @singleton
 class DialogUtils {
-  void showSnackBar({
+  static void showLoading(BuildContext context) => showDialog(
+    context: context,
+    barrierDismissible: false,
+    builder: (_) => PopScope(
+      canPop: false,
+      child: AlertDialog(
+        content: SizedBox(
+          height: MediaQuery.sizeOf(context).height * 0.2,
+          child: const Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [LoadingIndicator()],
+          ),
+        ),
+      ),
+    ),
+  );
+  static void hideLoading(BuildContext context) => Navigator.of(context).pop();
+
+  static void showSnackBar({
     required Color textColor,
     required String message,
     required BuildContext context,
@@ -31,7 +51,12 @@ class DialogUtils {
               ),
             ],
           ),
-          backgroundColor: Colors.black.withOpacity(0.8),
+          backgroundColor: Colors.black.withValues(
+            red: 0,
+            green: 0,
+            blue: 0,
+            alpha: 0.8,
+          ),
           duration: duration,
           behavior: SnackBarBehavior.floating,
           shape: RoundedRectangleBorder(
@@ -43,17 +68,21 @@ class DialogUtils {
       );
   }
 
-  void showErrorDialog(BuildContext context, String title, String content) {
+  static void showErrorDialog(
+    BuildContext context,
+    String title,
+    String content,
+  ) {
     showDialog(
       context: context,
       builder: (context) {
         return AlertDialog(
-          title: Center(child: Text(title)),
+          title: Center(child: Text(LocaleKeys.dialogs_error.tr())),
           content: Text(content),
           actions: [
             ElevatedButton(
               onPressed: () => Navigator.pop(context),
-              child: Text('dialogs.error.ok'.tr()),
+              child: Text(LocaleKeys.dialogs_ok.tr()),
             ),
           ],
         );

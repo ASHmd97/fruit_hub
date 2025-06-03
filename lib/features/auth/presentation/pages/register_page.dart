@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruit_hub/core/di/injectable.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/theme/app_styles.dart';
+import 'package:fruit_hub/features/auth/presentation/cubit/register_cubit.dart';
 import 'package:fruit_hub/features/auth/presentation/widgets/register_page_body.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -23,7 +26,11 @@ class RegisterPage extends StatelessWidget {
           },
         ),
       ),
-      body: const RegisterPageBody(),
+      body: BlocProvider(
+        create: (context) => getIt<RegisterCubit>(),
+
+        child: RegisterPageBody(),
+      ),
     );
   }
 }

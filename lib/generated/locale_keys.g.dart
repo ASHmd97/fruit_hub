@@ -3,6 +3,10 @@
 // ignore_for_file: constant_identifier_names
 
 abstract class  LocaleKeys {
+  static const validation_fullNameEmpty = 'validation.fullNameEmpty';
+  static const validation_fullNameTooShort = 'validation.fullNameTooShort';
+  static const validation_fullNameTooLong = 'validation.fullNameTooLong';
+  static const validation_fullNameInvalid = 'validation.fullNameInvalid';
   static const validation_firstNameEmpty = 'validation.firstNameEmpty';
   static const validation_firstNameInvalid = 'validation.firstNameInvalid';
   static const validation_lastNameEmpty = 'validation.lastNameEmpty';
@@ -26,5 +30,12 @@ abstract class  LocaleKeys {
   static const onboarding_description1 = 'onboarding.description1';
   static const onboarding_description2 = 'onboarding.description2';
   static const onboarding = 'onboarding';
+  static const dialogs_error = 'dialogs.error';
+  static const dialogs_success = 'dialogs.success';
+  static const dialogs_warning = 'dialogs.warning';
+  static const dialogs_info = 'dialogs.info';
+  static const dialogs_ok = 'dialogs.ok';
+  static const dialogs_cancel = 'dialogs.cancel';
+  static const dialogs = 'dialogs';
 
 }

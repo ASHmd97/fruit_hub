@@ -1,8 +1,8 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:fruit_hub/core/error_handling/exceptions/storage/local_storage_exception.dart';
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../error_handling/exceptions/local_storage_exception.dart';
 import '../../logger/app_logger.dart';
 
 @singleton
@@ -16,7 +16,9 @@ class LocalStorageClient {
     try {
       return await sharedPreferences.setString(key, value);
     } catch (e) {
-      throw LocalStorageException('Failed to save data: ${e.toString()}');
+      throw CacheWriteException(
+        message: 'Failed to save data: ${e.toString()}',
+      );
     }
   }
 
@@ -25,7 +27,7 @@ class LocalStorageClient {
       Log.d('getting $key');
       return sharedPreferences.getString(key);
     } catch (e) {
-      throw LocalStorageException('Failed to get data: ${e.toString()}');
+      throw CacheReadException(message: 'Failed to get data: ${e.toString()}');
     }
   }
 
@@ -33,7 +35,9 @@ class LocalStorageClient {
     try {
       return await sharedPreferences.setBool(key, value);
     } catch (e) {
-      throw LocalStorageException('Failed to save data: ${e.toString()}');
+      throw CacheWriteException(
+        message: 'Failed to save data: ${e.toString()}',
+      );
     }
   }
 
@@ -42,7 +46,7 @@ class LocalStorageClient {
       Log.d('getting $key');
       return sharedPreferences.getBool(key) ?? false;
     } catch (e) {
-      throw LocalStorageException('Failed to get data: ${e.toString()}');
+      throw CacheReadException(message: 'Failed to get data: ${e.toString()}');
     }
   }
 
@@ -51,7 +55,9 @@ class LocalStorageClient {
       Log.d('saving $key');
       return await secureStorage.write(key: key, value: value);
     } catch (e) {
-      throw LocalStorageException('Failed to save data: ${e.toString()}');
+      throw CacheWriteException(
+        message: 'Failed to save data: ${e.toString()}',
+      );
     }
   }
 
@@ -60,7 +66,7 @@ class LocalStorageClient {
       Log.d('getting $key');
       return await secureStorage.read(key: key);
     } catch (e) {
-      throw LocalStorageException('Failed to get data: ${e.toString()}');
+      throw CacheReadException(message: 'Failed to get data: ${e.toString()}');
     }
   }
 
@@ -68,7 +74,9 @@ class LocalStorageClient {
     try {
       await sharedPreferences.remove(key);
     } catch (e) {
-      throw LocalStorageException('Failed to delete data: ${e.toString()}');
+      throw CacheDeleteException(
+        message: 'Failed to delete data: ${e.toString()}',
+      );
     }
   }
 
@@ -77,7 +85,9 @@ class LocalStorageClient {
       Log.d('deleting $key');
       await secureStorage.delete(key: key);
     } catch (e) {
-      throw LocalStorageException('Failed to delete data: ${e.toString()}');
+      throw CacheDeleteException(
+        message: 'Failed to delete data: ${e.toString()}',
+      );
     }
   }
 
@@ -88,7 +98,7 @@ class LocalStorageClient {
       return rememberMe;
     } catch (e) {
       Log.e(e.toString());
-      throw LocalStorageException('Failed to get data: ${e.toString()}');
+      throw CacheReadException(message: 'Failed to get data: ${e.toString()}');
     }
   }
 
@@ -97,7 +107,9 @@ class LocalStorageClient {
       Log.d('saving rememberMe with $rememberMe');
       await sharedPreferences.setBool('rememberUser', rememberMe);
     } catch (e) {
-      throw LocalStorageException('Failed to save data: ${e.toString()}');
+      throw CacheWriteException(
+        message: 'Failed to save data: ${e.toString()}',
+      );
     }
   }
 }
