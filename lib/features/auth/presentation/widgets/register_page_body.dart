@@ -33,7 +33,7 @@ class _RegisterPageBodyState extends State<RegisterPageBody> {
           Navigator.of(context).pushReplacementNamed(Routes.login);
         } else if (state is RegisterFailure) {
           DialogUtils.hideLoading(context);
-          DialogUtils.showErrorDialog(context, 'حدث خطأ', state.message);
+          DialogUtils.showErrorDialog(context, state.message);
         }
       },
       builder: (context, state) {
@@ -135,11 +135,7 @@ class _RegisterPageBodyState extends State<RegisterPageBody> {
                     return ElevatedButton(
                       onPressed: isValid
                           ? () {
-                              cubit.registerWithEmailAndPassword(
-                                email: cubit.emailController.text,
-                                password: cubit.passwordController.text,
-                                name: cubit.nameController.text,
-                              );
+                              cubit.registerWithEmailAndPassword();
                             }
                           : null,
                       child: Text(

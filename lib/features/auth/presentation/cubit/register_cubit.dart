@@ -20,16 +20,12 @@ class RegisterCubit extends Cubit<RegisterState> {
   final ValueNotifier<bool> isFormValidNotifier = ValueNotifier(false);
   bool isTermsAccepted = false;
 
-  Future<void> registerWithEmailAndPassword({
-    required String email,
-    required String password,
-    required String name,
-  }) async {
+  Future<void> registerWithEmailAndPassword() async {
     emit(RegisterLoading());
     final result = await registerWithEmailAndPasswordUsecase(
-      email,
-      password,
-      name,
+      email: emailController.text,
+      password: passwordController.text,
+      name: nameController.text,
     );
     result.fold(
       (failure) => emit(RegisterFailure(failure.message)),

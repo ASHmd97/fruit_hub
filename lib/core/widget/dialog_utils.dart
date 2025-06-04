@@ -68,11 +68,7 @@ class DialogUtils {
       );
   }
 
-  static void showErrorDialog(
-    BuildContext context,
-    String title,
-    String content,
-  ) {
+  static void showErrorDialog(BuildContext context, String content) {
     showDialog(
       context: context,
       builder: (context) {

@@ -26,8 +26,12 @@ import 'package:fruit_hub/features/auth/data/repo/auth_repository_imp.dart'
     as _i518;
 import 'package:fruit_hub/features/auth/domain/repository/auth_repository.dart'
     as _i978;
+import 'package:fruit_hub/features/auth/domain/usecases/login_with_email_and_password_usecase.dart'
+    as _i569;
 import 'package:fruit_hub/features/auth/domain/usecases/register_with_email_and_password_usecase.dart'
     as _i167;
+import 'package:fruit_hub/features/auth/presentation/cubit/login_cubit.dart'
+    as _i129;
 import 'package:fruit_hub/features/auth/presentation/cubit/register_cubit.dart'
     as _i291;
 import 'package:get_it/get_it.dart' as _i174;
@@ -81,12 +85,18 @@ extension GetItInjectableX on _i174.GetIt {
       () =>
           _i167.RegisterWithEmailAndPasswordUsecase(gh<_i978.AuthRepository>()),
     );
+    gh.factory<_i569.LoginWithEmailAndPasswordUsecase>(
+      () => _i569.LoginWithEmailAndPasswordUsecase(gh<_i978.AuthRepository>()),
+    );
     gh.singleton<_i261.ApiClient>(
       () => _i280.DioApiClient(
         gh<_i239.LocalStorageClient>(),
         gh<_i938.DioErrorHandler>(),
         gh<_i719.GlobalKey<_i719.NavigatorState>>(),
       ),
+    );
+    gh.factory<_i129.LoginCubit>(
+      () => _i129.LoginCubit(gh<_i569.LoginWithEmailAndPasswordUsecase>()),
     );
     gh.factory<_i291.RegisterCubit>(
       () =>

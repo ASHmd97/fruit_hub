@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fruit_hub/core/di/injectable.dart';
 import 'package:fruit_hub/core/theme/app_colors.dart';
 import 'package:fruit_hub/core/theme/app_styles.dart';
+import 'package:fruit_hub/features/auth/presentation/cubit/login_cubit.dart';
 import 'package:fruit_hub/features/auth/presentation/widgets/login_page_body.dart';
 
 class LoginPage extends StatelessWidget {
@@ -21,7 +24,10 @@ class LoginPage extends StatelessWidget {
         ),
         centerTitle: true,
       ),
-      body: const LoginPageBody(),
+      body: BlocProvider(
+        create: (context) => getIt<LoginCubit>(),
+        child: const LoginPageBody(),
+      ),
     );
   }
 }

@@ -4,6 +4,7 @@ import 'package:fruit_hub/core/app_data/fire_base/firebase_serves.dart';
 import 'package:fruit_hub/core/error_handling/exceptions/firebase_exception.dart';
 import 'package:fruit_hub/features/auth/data/models/user_model.dart';
 import 'package:injectable/injectable.dart';
+import 'package:logger/logger.dart';
 
 import '../../../../core/error_handling/errors/failure.dart';
 import '../../domain/entities/user_entity.dart';
@@ -16,21 +17,21 @@ class AuthRepositoryImp extends AuthRepository {
   AuthRepositoryImp(this._firebaseServes);
 
   @override
-  Future<Either<Failure, UserEntity>> registerWithEmailAndPassword(
-    String email,
-    String password,
-    String name,
-  ) async {
+  Future<Either<Failure, UserEntity>> registerWithEmailAndPassword({
+    required String email,
+    required String password,
+    required String name,
+  }) async {
     try {
       User user = await _firebaseServes.registerWithEmailAndPassword(
         email: email,
         password: password,
         name: name,
       );
-      await _firebaseServes.updateUserName(name);
-      // Assuming the user is successfully registered and updated
+
+      // Update user name in Firebase
+      // await _firebaseServes.updateUserName(name);
       // Convert Firebase User to UserModel
-      // and return it wrapped in a Right
       return Right(UserModel.fromFirebase(user));
     } on AppFirebaseException catch (e) {
       return Left(ServerFailure(e.message));
@@ -38,11 +39,19 @@ class AuthRepositoryImp extends AuthRepository {
   }
 
   @override
-  Future<Either<Failure, UserEntity>> loginWithEmailAndPassword(
-    String email,
-    String password,
-  ) {
-    // TODO: implement loginWithEmailAndPassword
-    throw UnimplementedError();
+  Future<Either<Failure, UserEntity>> loginWithEmailAndPassword({
+    required String email,
+    required String password,
+  }) async {
+    try {
+      User user = await _firebaseServes.loginWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      // Convert Firebase User to UserModel
+      return Right(UserModel.fromFirebase(user));
+    } on AppFirebaseException catch (e) {
+      return Left(ServerFailure(e.message));
+    }
   }
 }
